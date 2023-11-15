@@ -66,9 +66,9 @@
           '<a href="https://www.facebook.com/sharer.php?u=' +
             encodedUrl +
             '" class="article-share-facebook" target="_blank" title="Facebook"><span class="fa fa-facebook"></span></a>',
-          '<a href="http://pinterest.com/pin/create/button/?url=' +
+          '<a href="http://lineit.line.me/share/ui?url=' +
             encodedUrl +
-            '" class="article-share-pinterest" target="_blank" title="Pinterest"><span class="fa fa-pinterest"></span></a>',
+            '" class="article-share-lineapp" target="_blank" title="Lineapp"><span class="fa fa-lineapp"></span></a>',
           '<a href="https://www.linkedin.com/shareArticle?mini=true&url=' +
             encodedUrl +
             '" class="article-share-linkedin" target="_blank" title="LinkedIn"><span class="fa fa-linkedin"></span></a>',

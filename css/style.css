@@ -834,7 +834,7 @@ a.article-title:hover {
 }
 .article-share-twitter,
 .article-share-facebook,
-.article-share-pinterest,
+.article-share-lineapp,
 .article-share-linkedin {
   width: 50px;
   height: 36px;
@@ -846,7 +846,7 @@ a.article-title:hover {
 }
 .article-share-twitter:before,
 .article-share-facebook:before,
-.article-share-pinterest:before,
+.article-share-lineapp:before,
 .article-share-linkedin:before {
   font-size: 20px;
   width: 20px;
@@ -860,7 +860,7 @@ a.article-title:hover {
 }
 .article-share-twitter:hover,
 .article-share-facebook:hover,
-.article-share-pinterest:hover,
+.article-share-lineapp:hover,
 .article-share-linkedin:hover {
   color: #fff;
 }
@@ -872,9 +872,9 @@ a.article-title:hover {
   background: #3b5998;
   text-shadow: 0 1px #2f477a;
 }
-.article-share-pinterest:hover {
-  background: #cb2027;
-  text-shadow: 0 1px #a21a1f;
+.article-share-lineapp:hover {
+  background: #00b900;
+  text-shadow: 0 1px #009400;
 }
 .article-share-linkedin:hover {
   background: #0077b5;
