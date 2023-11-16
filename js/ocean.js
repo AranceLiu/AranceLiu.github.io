@@ -99,10 +99,10 @@
           '<a href="https://twitter.com/intent/tweet?url=' +
             encodedUrl +
             '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-          '<a href="https://www.facebook.com/sharer.php?u=' +
+          '<a href="https://m.facebook.com/sharer.php?u=' +
             encodedUrl +
             '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-          '<a href="http://lineit.line.me/share/ui?url=' +
+          '<a href="https://social-plugins.line.me/lineit/share/ui?url=' +
             encodedUrl +
             '" class="article-share-lineapp" target="_blank" title="Lineapp"></a>',
           '<a href="https://plus.google.com/share?url=' +
