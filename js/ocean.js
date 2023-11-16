@@ -102,7 +102,7 @@
           '<a href="https://m.facebook.com/sharer.php?u=' +
             encodedUrl +
             '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-          '<a href="https://social-plugins.line.me/lineit/share/ui?url=' +
+          '<a href="line://msg/text/' +
             encodedUrl +
             '" class="article-share-lineapp" target="_blank" title="Lineapp"></a>',
           '<a href="https://plus.google.com/share?url=' +
