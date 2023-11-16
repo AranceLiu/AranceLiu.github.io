@@ -6,7 +6,7 @@
   <link href="https://aranceliu.github.io/atom.xml" rel="self"/>
   
   <link href="https://aranceliu.github.io/"/>
-  <updated>2023-10-30T13:57:25.507Z</updated>
+  <updated>2023-11-16T13:31:23.085Z</updated>
   <id>https://aranceliu.github.io/</id>
   
   <author>
@@ -21,13 +21,15 @@
     <link href="https://aranceliu.github.io/2023/10/29/Javascript-Practice/"/>
     <id>https://aranceliu.github.io/2023/10/29/Javascript-Practice/</id>
     <published>2023-10-29T14:40:00.000Z</published>
-    <updated>2023-10-30T13:57:25.507Z</updated>
+    <updated>2023-11-16T13:31:23.085Z</updated>
     
     
     
     
     <category term="JavaScript" scheme="https://aranceliu.github.io/categories/JavaScript/"/>
     
+    
+    <category term="JavaScript" scheme="https://aranceliu.github.io/tags/JavaScript/"/>
     
   </entry>
   
