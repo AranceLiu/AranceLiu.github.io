@@ -77,14 +77,14 @@
 <h2 id="原生值"><a href="#原生值" class="headerlink" title="原生值"></a>原生值</h2><p>原生值代表著我們不能改變這個值得本身，然而除了物件外，所有的值都是原生值。</p>
 <p>像對於定義一個變數而言，我們僅能將這個變數賦予另一個值，但卻不能把這個值給改變。</p>
 <p>而在 JavaScript 內總共有 7 個原生值的型態：</p>
+<span id="more"></span>
+
 <h3 id="字串"><a href="#字串" class="headerlink" title="字串"></a>字串</h3><p>藉由文字資料是用來表示字串型別，上述描述的，儘管我們賦予某個變數為另一個值，</p>
 <p>這也不代表我們將這個值改變，我們只是藉由指定讓他賦予另一個值。</p>
 <p>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;Arance&quot;</span>;</span><br><span class="line">name = <span class="string">&quot;Orange&quot;</span>;</span><br></pre></td></tr></table></figure>
 
 <p>賦予 name 變數的值為 Orange，但本身的『Arance』卻沒有變動。</p>
-<span id="more"></span>
-
 <p>對於字串而言，索引值起始值為 0，每一個字站一個位置，</p>
 <p>然而肉眼看見的第一個位置（第一個元素）表示為第 0 位。</p>
 <p>儘管我們藉由<strong>substr()</strong> 將字串取出，而使用 <strong>concat()</strong> 或 <strong>+</strong> 將字串串接起來，</p>
