@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>JavaScript的資料型別</title>
+    <url>/2023/11/01/03-js-data-type/</url>
+    <content><![CDATA[<h1 id="資料型別"><a href="#資料型別" class="headerlink" title="資料型別"></a>資料型別</h1><p>大多數的程式語言都有自身的資料型別，而在 JavaScript 中又分為<strong>原生值</strong>以及<strong>物件</strong>，這兩大類。</p>
+<h2 id="原生值"><a href="#原生值" class="headerlink" title="原生值"></a>原生值</h2><p>原生值代表著我們不能改變這個值得本身，然而除了物件外，所有的值都是原生值。</p>
+<p>像對於定義一個變數而言，我們僅能將這個變數賦予另一個值，但卻不能把這個值給改變。</p>
+<p>而在 JavaScript 內總共有 7 個原生值的型態：</p>
+<span id="more"></span>
+
+<h3 id="字串"><a href="#字串" class="headerlink" title="字串"></a>字串</h3><p>藉由文字資料是用來表示字串型別，上述描述的，儘管我們賦予某個變數為另一個值，</p>
+<p>這也不代表我們將這個值改變，我們只是藉由指定讓他賦予另一個值。</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;Arance&quot;</span>;</span><br><span class="line">name = <span class="string">&quot;Orange&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>賦予 name 變數的值為 Orange，但本身的『Arance』卻沒有變動。</p>
+<p>對於字串而言，索引值起始值為 0，每一個字站一個位置，</p>
+<p>然而肉眼看見的第一個位置（第一個元素）表示為第 0 位。</p>
+<p>儘管我們藉由<strong>substr()</strong> 將字串取出，而使用 <strong>concat()</strong> 或 <strong>+</strong> 將字串串接起來，</p>
+<p>本身的值也不會改變，這就是原生值的概念。</p>
+<h3 id="數字"><a href="#數字" class="headerlink" title="數字"></a>數字</h3><p>不論是<strong>整數</strong>或是<strong>浮點數</strong>都是原生值，更準確的說 -2<sup>53</sup>-1 至 2<sup>53</sup>-1 之間的數。</p>
+<p>然而在 JavaScript 中， <strong>+Infinity</strong> 、 <strong>-Infinity</strong> 、 <strong>NaN</strong>，這都是數字型別。</p>
+<p>註：<strong>NaN</strong> &#x3D;&gt; Not a Number</p>
+<h3 id="BigInt"><a href="#BigInt" class="headerlink" title="BigInt"></a>BigInt</h3><p>由於 2<sup>53</sup>-1 為 9007199254740991，或許會用到更大的數。</p>
+<p>此時我們就可以藉由 BigInt，可以必免一些問題。與數字型別一樣可以使用運算子。</p>
+<p>但不可以拿 BigInt 與數字型別的值交互使用。</p>
+<h3 id="布林值"><a href="#布林值" class="headerlink" title="布林值"></a>布林值</h3><p>布林值只有兩個值，不是<strong>true</strong>就是<strong>false</strong>。</p>
+<h3 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h3><p>undefined 的型別，本身是由於某個變數沒有宣告而使用，或是宣告了但卻沒賦予值。</p>
+<h3 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h3><p>null 與 undefined 很容易搞混，undefined 主要是變數還沒有定義，而 null 是賦予這個變數為 null 這一個值。</p>
+<h3 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h3><p>Symbol 主要會搭配物件而使用，而作為物件的 key。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">key</span>: value &#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><p>除了 7 個原生值之外，剩下存在至 JavaScript 當中都是物件。</p>
+<p>像是 Array 以及 Function 都是物件。</p>
+<h1 id="如何判斷變數型別？"><a href="#如何判斷變數型別？" class="headerlink" title="如何判斷變數型別？"></a>如何判斷變數型別？</h1><p>究竟要怎麼半段一個變數的資料型別哪？我們藉由<strong>typeof</strong>這個方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="number">123</span>; <span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&quot;aaa&quot;</span>; <span class="comment">// string</span></span><br><span class="line"><span class="keyword">typeof</span> []; <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> &#123; <span class="attr">nn</span>: <span class="number">123</span> &#125;; <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>; <span class="comment">// boolean</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">typeof</span> <span class="number">123</span>; <span class="comment">// string ；因為typeof(&#x27;123&#x27;)為number，而typeof(&#x27;number&#x27;)就是String</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>; <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="title class_">NaN</span>; <span class="comment">// number</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="https://zh.wikipedia.org/zh-tw/%E8%B3%87%E6%96%99%E9%A1%9E%E5%9E%8B">維基百科 - 資料型態</a></p>
+<p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Data_structures">MDN - JavaScript 的資料型別與資料結構</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>網頁前端三元素</title>
+    <url>/2023/10/29/02-front-end-three/</url>
+    <content><![CDATA[<h1 id="網頁"><a href="#網頁" class="headerlink" title="網頁"></a>網頁</h1><p>網頁主要是由<strong>前端</strong>以及<strong>後端</strong>，這兩個部分組織而成的。</p>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><p>前端的部分，主要是以資料輸入、採集資料；呈現介面樣式以及視覺的部分。</p>
+<h2 id="後端"><a href="#後端" class="headerlink" title="後端"></a>後端</h2><p>後端的部分，主要是以獲取的資訊，做處理；作為後台管理系統的部分。<span id="more"></span></p>
+<h2 id="前端三大元素"><a href="#前端三大元素" class="headerlink" title="前端三大元素"></a>前端三大元素</h2><p>然而現行的前端三大構成元素為：HTML、CSS、JavaScript。</p>
+<ul>
+<li>HTML：主要是網頁內容的描述語言，將它視為建立網頁的結構。</li>
+<li>CSS：主要是網頁外觀型態的描述語言，讓它美化網頁。</li>
+<li>JavaScript：主要用來呈現網頁動態的效果，讓用戶與網頁達到互動的效果。</li>
+</ul>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><p>HTML 是 HyperText Markup Language 的縮寫，其實它並不是一個程式語言，<br>而是一個標記語言，藉由主架構之下來做的一種文件標記語言。</p>
+<p><strong>主要的架構如下：</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><p>CSS 是 Cascading Style Sheets 的縮寫，跟 HTML 一樣不是一個程式語言，<br>主要藉由 CSS 將 HTML 標記語言的樣式做美化。</p>
+<p><strong>例如想要藉由 CSS 將所有段落變成紅色字：</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>網頁前端所支援的 JavaScript 可以藉由這個程式語言，達到用戶與網頁做互動的功能。</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="https://zh.wikipedia.org/zh-tw/%E5%89%8D%E7%AB%AF%E5%92%8C%E5%90%8E%E7%AB%AF">維基百科 - 前端和後端</a></p>
+<p><a href="https://developer.mozilla.org/zh-TW/docs/Web/HTML">MDN - HTML</a></p>
+<p><a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS">MDN - CSS</a></p>
+<p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript">MDN - JavaScript</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>CSS</category>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>CSS</tag>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/10/29/01-hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+</search>
