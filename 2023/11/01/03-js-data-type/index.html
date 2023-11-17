@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    JavaScript的資料型別 |
+    
+    Welcome
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Welcome" type="application/atom+xml">
+</head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-03-js-data-type" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+  <h1 class="article-title" itemprop="name">
+    JavaScript的資料型別
+  </h1>
+  
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2023/11/01/03-js-data-type/" class="article-date">
+  <time datetime="2023-10-31T18:21:00.000Z" itemprop="datePublished">2023-11-01</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <h1 id="資料型別"><a href="#資料型別" class="headerlink" title="資料型別"></a>資料型別</h1><p>大多數的程式語言都有自身的資料型別，而在 JavaScript 中又分為<strong>原生值</strong>以及<strong>物件</strong>，這兩大類。</p>
+<h2 id="原生值"><a href="#原生值" class="headerlink" title="原生值"></a>原生值</h2><p>原生值代表著我們不能改變這個值得本身，然而除了物件外，所有的值都是原生值。</p>
+<p>像對於定義一個變數而言，我們僅能將這個變數賦予另一個值，但卻不能把這個值給改變。</p>
+<p>而在 JavaScript 內總共有 7 個原生值的型態：</p>
+<h3 id="字串"><a href="#字串" class="headerlink" title="字串"></a>字串</h3><p>藉由文字資料是用來表示字串型別，上述描述的，儘管我們賦予某個變數為另一個值，</p>
+<p>這也不代表我們將這個值改變，我們只是藉由指定讓他賦予另一個值。</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;Arance&quot;</span>;</span><br><span class="line">name = <span class="string">&quot;Orange&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>賦予 name 變數的值為 Orange，但本身的『Arance』卻沒有變動。</p>
+<span id="more"></span>
+
+<p>對於字串而言，索引值起始值為 0，每一個字站一個位置，</p>
+<p>然而肉眼看見的第一個位置（第一個元素）表示為第 0 位。</p>
+<p>儘管我們藉由<strong>substr()</strong> 將字串取出，而使用 <strong>concat()</strong> 或 <strong>+</strong> 將字串串接起來，</p>
+<p>本身的值也不會改變，這就是原生值的概念。</p>
+<h3 id="數字"><a href="#數字" class="headerlink" title="數字"></a>數字</h3><p>不論是<strong>整數</strong>或是<strong>浮點數</strong>都是原生值，更準確的說 -2<sup>53</sup>-1 至 2<sup>53</sup>-1 之間的數。</p>
+<p>然而在 JavaScript 中， <strong>+Infinity</strong> 、 <strong>-Infinity</strong> 、 <strong>NaN</strong>，這都是數字型別。</p>
+<p>註：<strong>NaN</strong> &#x3D;&gt; Not a Number</p>
+<h3 id="BigInt"><a href="#BigInt" class="headerlink" title="BigInt"></a>BigInt</h3><p>由於 2<sup>53</sup>-1 為 9007199254740991，或許會用到更大的數。</p>
+<p>此時我們就可以藉由 BigInt，可以必免一些問題。與數字型別一樣可以使用運算子。</p>
+<p>但不可以拿 BigInt 與數字型別的值交互使用。</p>
+<h3 id="布林值"><a href="#布林值" class="headerlink" title="布林值"></a>布林值</h3><p>布林值只有兩個值，不是<strong>true</strong>就是<strong>false</strong>。</p>
+<h3 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h3><p>undefined 的型別，本身是由於某個變數沒有宣告而使用，或是宣告了但卻沒賦予值。</p>
+<h3 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h3><p>null 與 undefined 很容易搞混，undefined 主要是變數還沒有定義，而 null 是賦予這個變數為 null 這一個值。</p>
+<h3 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h3><p>Symbol 主要會搭配物件而使用，而作為物件的 key。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">key</span>: value &#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><p>除了 7 個原生值之外，剩下存在至 JavaScript 當中都是物件。</p>
+<p>像是 Array 以及 Function 都是物件。</p>
+<h1 id="如何判斷變數型別？"><a href="#如何判斷變數型別？" class="headerlink" title="如何判斷變數型別？"></a>如何判斷變數型別？</h1><p>究竟要怎麼半段一個變數的資料型別哪？我們藉由<strong>typeof</strong>這個方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="number">123</span>; <span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&quot;aaa&quot;</span>; <span class="comment">// string</span></span><br><span class="line"><span class="keyword">typeof</span> []; <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> &#123; <span class="attr">nn</span>: <span class="number">123</span> &#125;; <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>; <span class="comment">// boolean</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">typeof</span> <span class="number">123</span>; <span class="comment">// string ；因為typeof(&#x27;123&#x27;)為number，而typeof(&#x27;number&#x27;)就是String</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>; <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="title class_">NaN</span>; <span class="comment">// number</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E8%B3%87%E6%96%99%E9%A1%9E%E5%9E%8B">維基百科 - 資料型態</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Data_structures">MDN - JavaScript 的資料型別與資料結構</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aranceliu.github.io/2023/11/01/03-js-data-type/" data-id="clp2pgh950010ewuiha6p1izj" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  
+  <a href="/2023/10/29/02-front-end-three/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">網頁前端三元素</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>Welcome &copy; 2023</li>
+      
+        <li>
+          
+            <a href="https://beian.miit.gov.cn/" target="_blank"></a>
+            
+        </li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+    <p><ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt tooltip" data-tooltip="UV"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark tooltip" data-tooltip="PV"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul></p>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Welcome"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">Categories</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">Tags</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
