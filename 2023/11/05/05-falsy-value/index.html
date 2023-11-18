@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    falsy value |
+    
+    Welcome
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Welcome" type="application/atom+xml">
+</head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-05-falsy-value" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+  <h1 class="article-title" itemprop="name">
+    falsy value
+  </h1>
+  
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2023/11/05/05-falsy-value/" class="article-date">
+  <time datetime="2023-11-05T04:09:00.000Z" itemprop="datePublished">2023-11-05</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <h1 id="什麼是-falsy-value？"><a href="#什麼是-falsy-value？" class="headerlink" title="什麼是 falsy value？"></a>什麼是 falsy value？</h1><p>當我們藉由邏輯判斷式(if…)時，會希望我們藉由 if 來判斷的東西回傳布林值(true or false)，</p>
+<p>這樣方便我們判斷該往哪一步前進。</p>
+<p>至於 falsy value 而言，就是這個值丟進去 if 判斷式內，</p>
+<p>都會被列為 false，要前往得到 false 後所執行的區塊。</p>
+<h2 id="false"><a href="#false" class="headerlink" title="false"></a>false</h2><p>像 false 就是很標準的被列為是 false 的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">  <span class="comment">//當條件成立才會做的區塊，但由於falsy value在if判斷式內，這將不會執行這區塊。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>除了 false 以外，還有：</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>0</li>
+<li>-0</li>
+<li>0n</li>
+<li>‘’</li>
+<li>“”</li>
+<li>NaN</li>
+</ul>
+<p>對於 0n 而言，他的型態為 BigInt，它也是會代表 falsy value 之一，比如:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="number">0n</span>) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這個情況下，也等同於 0n 為 false。</p>
+<h3 id="何謂-NaN？"><a href="#何謂-NaN？" class="headerlink" title="何謂 NaN？"></a>何謂 NaN？</h3><p>NaN 表示為 not a number，主要表示不為一個數，舉個例子來說：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="string">&quot;aaa&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> / a);</span><br></pre></td></tr></table></figure>
+
+<p>a 這個變數是文字時，當 1&#x2F;a 就會得到 NaN，因為數字除以文字根本不會得到一個數。</p>
+<p>又或者</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Number</span>(<span class="string">&quot;123&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Number</span>(<span class="string">&quot;xyz&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>當我們藉由 Number 包住文字型態的 123 時，JavaScript 會幫我們做轉型，</p>
+<p>轉換成數字型態的 123，但當 Number 包住 xyz 時，</p>
+<p>xyz 儘管轉型也不會是數字型態，所以此時我們就會得到 NaN。</p>
+<p>對 NaN 而言，它也是 falsy value 代表之一。</p>
+<h3 id="究竟我們今天要怎麼判斷一個值是否為-NaN-呢？"><a href="#究竟我們今天要怎麼判斷一個值是否為-NaN-呢？" class="headerlink" title="究竟我們今天要怎麼判斷一個值是否為 NaN 呢？"></a>究竟我們今天要怎麼判斷一個值是否為 NaN 呢？</h3><p>我們可以藉由內建 isNaN 的函數來判斷：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">isNaN</span>(a);</span><br><span class="line"><span class="built_in">isNaN</span>(<span class="title class_">NaN</span>);</span><br></pre></td></tr></table></figure>
+
+<p>對於 a 而言，我們使用 isNaN 的函數來詢問他，會得到 false，</p>
+<p>然而對於 NaN 而言，一樣的方式，我們會得到 true。</p>
+<h3 id="NaN-不為任何人"><a href="#NaN-不為任何人" class="headerlink" title="NaN 不為任何人(?)"></a>NaN 不為任何人(?)</h3><p>除了用內建的函數來判斷之外，我們也可以藉由他的特性：</p>
+<p>NaN 不為任何人，如果我們今天用 NaN &#x3D;&#x3D;&#x3D; NaN 來詢問，</p>
+<p>得到的答案會是 false。</p>
+<p>所以儘管，我們定義一個 a 變數為 NaN，我們問他是不是 NaN，</p>
+<p>它也只會回答 false。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="title class_">NaN</span>;</span><br><span class="line">a === <span class="title class_">NaN</span>;</span><br></pre></td></tr></table></figure>
+
+<p>所以其實我們不能用這樣的方法判斷是不是 NaN。</p>
+<p>但我們卻可以用，本身值判斷是不是不等於自己，</p>
+<p>因為如果是 NaN 的情況下，判斷 NaN 是否為自己本身，不會得到 true。</p>
+<p>所以我們可以藉由詢問，自己是否不等於自己本身來判斷：</p>
+<p>如果得到的答案是 true 時，這個值就是 NaN(因為特性的關係，NaN 不會等於自己)，</p>
+<p>而當我們答案得到 false 時，這個值就不是 NaN(表示他有特定的值)。</p>
+<hr>
+<p>舉個例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (a !== a) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;it&#x27;s NaN&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;it&#x27;s not NaN&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在判斷式內的確會得到 false，這樣 a 就不是 NaN，的確 a 的值為 1，不是 NaN。</p>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="title class_">NaN</span>;</span><br><span class="line"><span class="keyword">if</span> (a !== a) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;is NaN&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;not NaN&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在判斷式內的確會得到 true，這樣 a 就 NaN，的確 a 的值為 NaN。</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">MDN - Falsy</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aranceliu.github.io/2023/11/05/05-falsy-value/" data-id="clp3riawq000azwuianhy9lnh" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  
+  <a href="/2023/11/04/04-difference-of-n-u-u/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">null undefined undeclared 三者差異性</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>Arance &copy; 2023</li>
+      
+      <li>
+        
+        <a href="https://beian.miit.gov.cn/" target="_blank"
+          ></a
+        >
+        
+      </li>
+      
+      <li>
+        Powered by
+        <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </li>
+      <li>
+        theme 
+        <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a>
+      </li>
+    </ul>
+    <p><ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt tooltip" data-tooltip="UV"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark tooltip" data-tooltip="PV"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul></p>
+  </div>
+</footer>
+
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Welcome"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">Categories</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">Tags</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
