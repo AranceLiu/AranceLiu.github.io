@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/2023/11/18/04-/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>JavaScript的資料型別</title>
     <url>/2023/11/01/03-js-data-type/</url>
     <content><![CDATA[<h1 id="資料型別"><a href="#資料型別" class="headerlink" title="資料型別"></a>資料型別</h1><p>大多數的程式語言都有自身的資料型別，而在 JavaScript 中又分為<strong>原生值</strong>以及<strong>物件</strong>，這兩大類。</p>
@@ -37,9 +42,15 @@
 <p>我們藉由<strong>typeof</strong>這個方法。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="number">123</span>; <span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&quot;aaa&quot;</span>; <span class="comment">// string</span></span><br><span class="line"><span class="keyword">typeof</span> []; <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> &#123; <span class="attr">nn</span>: <span class="number">123</span> &#125;; <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>; <span class="comment">// boolean</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">typeof</span> <span class="number">123</span>; <span class="comment">// string ；因為typeof(&#x27;123&#x27;)為number，而typeof(&#x27;number&#x27;)就是String</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>; <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="title class_">NaN</span>; <span class="comment">// number</span></span><br></pre></td></tr></table></figure>
 
+<p>這邊特別值得一提的是，對於 typeof null 回傳值竟然是 object，</p>
+<p>null 這個原生值型態，很多人其實認為這一點要修改，</p>
+<p>不過目前為止 ES6 對於這仍然是沒有要更動的，</p>
+<p>畢竟可能現在才做改變，有些人的程式碼如果有使用到的話，</p>
+<p>就會被影響到。</p>
 <hr>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="https://zh.wikipedia.org/zh-tw/%E8%B3%87%E6%96%99%E9%A1%9E%E5%9E%8B">維基百科 - 資料型態</a></p>
 <p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Data_structures">MDN - JavaScript 的資料型別與資料結構</a></p>
+<p><a href="https://262.ecma-international.org/5.1/#sec-11.4.3">ECMAScript</a></p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
