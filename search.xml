@@ -1,6 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>相等比較</title>
+    <url>/2023/11/09/06-equal/</url>
+    <content><![CDATA[<h1 id="JavaScript-的相等比較"><a href="#JavaScript-的相等比較" class="headerlink" title="JavaScript 的相等比較"></a>JavaScript 的相等比較</h1><p>相等比較為兩個值做比較判斷它們是否相等，然而在 JavaScript 中，</p>
+<p>有三種方法可以做<strong>相等比較</strong>:</p>
+<ul>
+<li><p>一般相等</p>
+</li>
+<li><p>嚴格相等</p>
+</li>
+<li><p>Object.is 函數</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="一般相等"><a href="#一般相等" class="headerlink" title="一般相等"></a>一般相等</h2><p>所謂的一般相等，是藉由兩個等號做表示(&#x3D;&#x3D;)，一般相等會藉由將兩個值的型別作轉換，</p>
+<p>將兩個值的型別一致化後，再做相等的比較，舉個例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">9</span> == <span class="string">&quot;9&quot;</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>結果會得到 true，因為數字 9 以及文字 9，嚴格來說本質上應該是不能相等，</p>
+<p>但對於使用一般相等而言，會將兩個 9 的型別轉換成相同的型態再做比較。</p>
+<p>對於布林值而言，做一般相等比較時，轉換成同一個型別，</p>
+<p>會將 true 轉換為 1，而 false 轉換為 0。</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">0</span> == <span class="literal">false</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>此時，型別轉換，會將 false 會轉換成 0，所以比較 0 是否為 0，即會得到 true.</p>
+<p>對於 undefined 與 null 做比較，我們使用一般相等，會得到 true 的值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> == <span class="literal">null</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="不同型別的一般相等："><a href="#不同型別的一般相等：" class="headerlink" title="不同型別的一般相等："></a>不同型別的一般相等：</h3><p>A &#x3D;&#x3D; B</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>B 為 undefined</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A 為 undefined</strong></td>
+<td>undefined &#x3D;&#x3D; undefined; &#x2F;&#x2F;true</td>
+</tr>
+<tr>
+<td><strong>A 為 null</strong></td>
+<td>null &#x3D;&#x3D; undefined; &#x2F;&#x2F;true</td>
+</tr>
+<tr>
+<td><strong>A 為 Number</strong></td>
+<td>3 &#x3D;&#x3D; undefined; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 String</strong></td>
+<td>“3” &#x3D;&#x3D; undefined; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 Boolean</strong></td>
+<td>true &#x3D;&#x3D; undefined; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 object</strong></td>
+<td>{name:”Arance”, age:30} &#x3D;&#x3D; undefined; &#x2F;&#x2F;false</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>B 為 null</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A 為 undefined</strong></td>
+<td>undefined &#x3D;&#x3D; null; &#x2F;&#x2F;true</td>
+</tr>
+<tr>
+<td><strong>A 為 null</strong></td>
+<td>null &#x3D;&#x3D; null; &#x2F;&#x2F;true</td>
+</tr>
+<tr>
+<td><strong>A 為 Number</strong></td>
+<td>3 &#x3D;&#x3D; null; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 String</strong></td>
+<td>“3” &#x3D;&#x3D; null; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 Boolean</strong></td>
+<td>true &#x3D;&#x3D; null; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 object</strong></td>
+<td>{name:”Arance”, age:30} &#x3D;&#x3D; null; &#x2F;&#x2F;false</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>B 為 Number</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A 為 undefined</strong></td>
+<td>undefined &#x3D;&#x3D; 3; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 null</strong></td>
+<td>null &#x3D;&#x3D; 3; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 Number</strong></td>
+<td>3 &#x3D;&#x3D; 3; &#x2F;&#x2F;true</td>
+</tr>
+<tr>
+<td><strong>A 為 String</strong></td>
+<td>“3” &#x3D;&#x3D; 3; &#x2F;&#x2F;true</td>
+</tr>
+<tr>
+<td><strong>A 為 Boolean</strong></td>
+<td>true &#x3D;&#x3D; 3; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 object</strong></td>
+<td>{name:”Arance”, age:30} &#x3D;&#x3D; 3; &#x2F;&#x2F;false</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>B 為 String</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A 為 undefined</strong></td>
+<td>undefined &#x3D;&#x3D; “3”; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 null</strong></td>
+<td>null &#x3D;&#x3D; “3”; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 Number</strong></td>
+<td>3 &#x3D;&#x3D; “3”; &#x2F;&#x2F;true</td>
+</tr>
+<tr>
+<td><strong>A 為 String</strong></td>
+<td>“3” &#x3D;&#x3D; “3”; &#x2F;&#x2F;true</td>
+</tr>
+<tr>
+<td><strong>A 為 Boolean</strong></td>
+<td>true &#x3D;&#x3D; “3”; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 object</strong></td>
+<td>{name:”Arance”, age:30} &#x3D;&#x3D; “3”; &#x2F;&#x2F;false</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>B 為 Boolean</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A 為 undefined</strong></td>
+<td>undefined &#x3D;&#x3D; true; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 null</strong></td>
+<td>null &#x3D;&#x3D; true; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 Number</strong></td>
+<td>3 &#x3D;&#x3D; true; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 String</strong></td>
+<td>“3” &#x3D;&#x3D; true; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 Boolean</strong></td>
+<td>true &#x3D;&#x3D; true; &#x2F;&#x2F;true</td>
+</tr>
+<tr>
+<td><strong>A 為 object</strong></td>
+<td>{name:”Arance”, age:30} &#x3D;&#x3D; true; &#x2F;&#x2F;false</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>B 為 object</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A 為 undefined</strong></td>
+<td>undefined &#x3D;&#x3D; {name:”Arance”, age:30}; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 null</strong></td>
+<td>null &#x3D;&#x3D; {name:”Arance”, age:30}; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 Number</strong></td>
+<td>3 &#x3D;&#x3D; {name:”Arance”, age:30}; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 String</strong></td>
+<td>“3” &#x3D;&#x3D; {name:”Arance”, age:30}; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 Boolean</strong></td>
+<td>true &#x3D;&#x3D; {name:”Arance”, age:30}; &#x2F;&#x2F;false</td>
+</tr>
+<tr>
+<td><strong>A 為 object</strong></td>
+<td>{name:”Arance”, age:30} &#x3D;&#x3D; {name:”Arance”, age:30}; &#x2F;&#x2F;true</td>
+</tr>
+</tbody></table>
+<h2 id="嚴格相等"><a href="#嚴格相等" class="headerlink" title="嚴格相等"></a>嚴格相等</h2><p>嚴格相等是藉由三個等號做表示(&#x3D;&#x3D;&#x3D;)，使用嚴格相等比較時，</p>
+<p>並不會將不同的型別轉換成相同的型別，所以兩個相同值但不同型別，會視為不同。</p>
+<p>有兩個特別的例子在嚴格相等中：</p>
+<ol>
+<li>+0 與 -0 比較：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">+<span class="number">0</span> === -<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>正零與負零做比較，會得到 true。</p>
+<ol start="2">
+<li>NaN 與 NaN 比較：</li>
+</ol>
+<p>而之前所提過 NaN 和 NaN 做比較會得到 false。</p>
+<h2 id="Object-is-函數"><a href="#Object-is-函數" class="headerlink" title="Object.is 函數"></a>Object.is 函數</h2><p>對於 Object.is 函數會與嚴格相等一樣，但對於 NaN、+0、-0 會獨立處理。</p>
+<p>對於 Object.is(+0,-0)會得到 false。</p>
+<p>對於 Object.is(NaN,NaN)會得到 true。</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Equality_comparisons_and_sameness">MDN - 相等比較</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>falsy value</title>
     <url>/2023/11/05/05-falsy-value/</url>
     <content><![CDATA[<h1 id="什麼是-falsy-value？"><a href="#什麼是-falsy-value？" class="headerlink" title="什麼是 falsy value？"></a>什麼是 falsy value？</h1><p>當我們藉由邏輯判斷式(if…)時，會希望我們藉由 if 來判斷的東西回傳布林值(true or false)，</p>
