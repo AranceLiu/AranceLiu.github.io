@@ -362,7 +362,7 @@
 
 <p>在判斷式內的確會得到 false，這樣 a 就不是 NaN，的確 a 的值為 1，不是 NaN。</p>
 <hr>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="title class_">NaN</span>;</span><br><span class="line"><span class="keyword">if</span> (a !== a) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;is NaN&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;not NaN&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="title class_">NaN</span>;</span><br><span class="line"><span class="keyword">if</span> (a !== a) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;it&#x27;s NaN&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;it&#x27;s not NaN&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在判斷式內的確會得到 true，這樣 a 就 NaN，的確 a 的值為 NaN。</p>
 <hr>
