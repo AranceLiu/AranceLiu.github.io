@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    JavaScript基礎 |
+    
+    Welcome
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Welcome" type="application/atom+xml">
+</head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-07-JS-Language" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+  <h1 class="article-title" itemprop="name">
+    JavaScript基礎
+  </h1>
+  
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2023/11/16/07-JS-Language/" class="article-date">
+  <time datetime="2023-11-15T20:01:28.000Z" itemprop="datePublished">2023-11-16</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <h1 id="變數"><a href="#變數" class="headerlink" title="變數"></a>變數</h1><p>簡單來說，變數是沒有固定的值，可以改變，像我們小時候做代數一樣，</p>
+<p>x+1&#x3D;9，此時的 x 即為 8；當今天 x-4&#x3D;2，此時的 x 即為 6。</p>
+<p>除了是單一個值之外，也可以是一個陣列。</p>
+<p>在 JavaScript 語法當中，我們要宣告一個變數，會使用：</p>
+<ul>
+<li><p>var</p>
+</li>
+<li><p>let</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">221</span>;</span><br><span class="line">a = <span class="number">789</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br></pre></td></tr></table></figure>
+
+<p>宣告一個變數 a，而它的值為 221，但我們可以藉由指定再將 a 變數指定為 789 的值。</p>
+<p>而對於變數而言，變數 b 宣告了但卻沒有給定初始值，這樣 b 會印出 undefined。</p>
+<p>let 也是相同方法，宣告變數，究竟 let 跟 var 有什麼差別呢？</p>
+<p>我之後會藉由一篇專門討論他們之間的差異性。</p>
+<h1 id="常數"><a href="#常數" class="headerlink" title="常數"></a>常數</h1><p>如果有一個數為固定的值，將永恆不變，我們就會藉由常數去定義它。</p>
+<p>我們會使用 const 定義一個常數，然而由於常數定義之後將不能改變，</p>
+<p>所以我們宣告常數時，就必定要給它一個初始值，</p>
+<p>因為我們不給定初始值的情況下，之後也不能改變這常數的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">221</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> b = <span class="literal">undefined</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br></pre></td></tr></table></figure>
+
+<h1 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h1><p>對於矩陣而言，是很多的元素組合再一起，可以想像成工具箱裡面有很多工具，</p>
+<p>今天想放的工具可以不斷的增加，或拿出來；矩陣也是，它的長度（容量）可以隨時改變。</p>
+<p>我們會藉由中括號的形式來顯示 &#x3D;&gt; [ ]</p>
+<p>我們可以藉由將一個變數定義成矩陣的形式。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> toolBox = [<span class="string">&quot;screws&quot;</span>, <span class="string">&quot;scissors&quot;</span>, <span class="string">&quot;tape&quot;</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(toolBox.<span class="property">length</span>);</span><br><span class="line">toolBox[<span class="number">0</span>] = <span class="string">&quot;screwdriver&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(toolBox);</span><br></pre></td></tr></table></figure>
+
+<p>工具箱這個變數，是一個陣列的型態，陣列元素裡有螺絲、剪刀、膠帶，而陣列的長度為 3。</p>
+<p>將工具箱第 0 個元素（也就是第一個的螺絲）換成螺絲起子，這樣工具箱裡的東西就會變成螺絲起子、剪刀、膠帶。</p>
+<h1 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h1><p>對於物件主要是可以存放很多 key 跟 value 的對配，而主要會以{ }的形式，。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Arance&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="attr">isAdult</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>對於 person 內的 name, age, isAdult 就是 key；而 Arance, 30, true 就是 value。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E8%AE%8A%E6%95%B8">維基百科 - 變數</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E5%B8%B8%E6%95%B0">維基百科 - 常數</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN - 矩陣</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aranceliu.github.io/2023/11/16/07-JS-Language/" data-id="clp57st6d000gw0ui6xpmcd3c" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  
+  <a href="/2023/11/09/06-equal/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">相等比較</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>Arance &copy; 2023</li>
+      
+      <li>
+        
+        <a href="https://beian.miit.gov.cn/" target="_blank"
+          ></a
+        >
+        
+      </li>
+      
+      <li>
+        Powered by
+        <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </li>
+      <li>
+        theme 
+        <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a>
+      </li>
+    </ul>
+    <p><ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt tooltip" data-tooltip="UV"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark tooltip" data-tooltip="PV"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul></p>
+  </div>
+</footer>
+
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Welcome"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">Categories</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">Tags</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
