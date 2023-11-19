@@ -39,6 +39,7 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Arance&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="attr">isAdult</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>對於 person 內的 name, age, isAdult 就是 key；而 Arance, 30, true 就是 value。</p>
+<hr>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="https://zh.wikipedia.org/zh-tw/%E8%AE%8A%E6%95%B8">維基百科 - 變數</a></p>
 <p><a href="https://zh.wikipedia.org/zh-tw/%E5%B8%B8%E6%95%B0">維基百科 - 常數</a></p>
 <p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN - 矩陣</a></p>
