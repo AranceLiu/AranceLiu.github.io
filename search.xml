@@ -11,9 +11,10 @@
 <li><p>switch</p>
 </li>
 </ul>
+<h2 id="什麼是流程控制？"><a href="#什麼是流程控制？" class="headerlink" title="什麼是流程控制？"></a>什麼是流程控制？</h2><p>流程控制定義就是程式執行的流程順序，和對應不同狀況而採取不同流程。</p>
 <span id="more"></span>
 
-<h2 id="if…else"><a href="#if…else" class="headerlink" title="if…else"></a>if…else</h2><p>對於 if…else 而言，代表當如果符合什麼條件的情況下，</p>
+<h1 id="if…else"><a href="#if…else" class="headerlink" title="if…else"></a>if…else</h1><p>對於 if…else 而言，代表當如果符合什麼條件的情況下，</p>
 <p>會做什麼事，除此之外…會做什麼事。</p>
 <p>會以以下的形式：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (條件)&#123;</span><br><span class="line">    符合條件要做的事</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    除此之外，要做的事</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -23,13 +24,13 @@
 
 <p>如果今天我生病了，我會留在家裡休息，如果不是，就會去學校上學。</p>
 <p>我今天的狀況是好的，所以以上述的例子而言，我會去學校上課。</p>
-<h2 id="三元運算子"><a href="#三元運算子" class="headerlink" title="三元運算子"></a>三元運算子</h2><p>跟 if 條件判斷式很像，寫法是藉由一個條件後帶著問號，</p>
+<h1 id="三元運算子"><a href="#三元運算子" class="headerlink" title="三元運算子"></a>三元運算子</h1><p>跟 if 條件判斷式很像，寫法是藉由一個條件後帶著問號，</p>
 <p>在將符合條件要做的事以及不符合條件做的事中間以冒號做分隔。</p>
 <p>語法：<font color=#0000FF><strong>condition ? exprIfTrue : exprIfFalse</strong></font></p>
 <p>我們可以把上面的例子用，三元運算子來表達：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> status = <span class="string">&quot;good&quot;</span>;</span><br><span class="line"></span><br><span class="line">status == <span class="string">&quot;sick&quot;</span> ? <span class="string">&quot;take rest at home&quot;</span> : <span class="string">&quot;go to school&quot;</span>;</span><br></pre></td></tr></table></figure>
 
-<h2 id="if…else-if…-else…"><a href="#if…else-if…-else…" class="headerlink" title="if…else if… else…"></a>if…else if… else…</h2><p>對 if…else 而言，可能將情況二分法，</p>
+<h1 id="if…else-if…-else…"><a href="#if…else-if…-else…" class="headerlink" title="if…else if… else…"></a>if…else if… else…</h1><p>對 if…else 而言，可能將情況二分法，</p>
 <p>但對 if…else if… else…而言，</p>
 <p>情況就不一定只有兩種，是兩種以上。</p>
 <p>例如：</p>
@@ -40,7 +41,7 @@
 <p>有點想睡，只能再睡 10 分鐘；</p>
 <p>如果都不是，就會去學校上學。</p>
 <p>我今天的狀況是好的，所以以上述的例子而言，我會去學校上課。</p>
-<h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><p>對 switch 語法而言，會以 switch…case 以及 break 做搭配：</p>
+<h1 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h1><p>對 switch 語法而言，會以 switch…case 以及 break 做搭配：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (變數)&#123;</span><br><span class="line">    <span class="keyword">case</span> 條件<span class="number">1</span>:</span><br><span class="line">    符合條件<span class="number">1</span>要做的事;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> 條件<span class="number">2</span>:</span><br><span class="line">    符合條件<span class="number">2</span>要做的事;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    ... <span class="comment">//可能不止兩個條件</span></span><br><span class="line"></span><br><span class="line">    [<span class="attr">default</span>:]</span><br><span class="line">        <span class="comment">//與其他條件都不符合，就以這個去執行</span></span><br><span class="line">    [<span class="keyword">break</span>;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>之前的例子：</p>
