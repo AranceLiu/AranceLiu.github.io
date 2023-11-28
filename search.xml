@@ -1,6 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JavaScript中 var, let, const 之間的差異</title>
+    <url>/2023/11/21/09-JS-var-let-const/</url>
+    <content><![CDATA[<h1 id="宣告"><a href="#宣告" class="headerlink" title="宣告"></a>宣告</h1><p>我們會藉由 var, let, const 做宣告，這三個即是在 Javascript 內的保留字。</p>
+<p>而早期只有 var 來宣告，但在 ES6 之後就加入了 let 以及 const。</p>
+<h2 id="宣告的重要性"><a href="#宣告的重要性" class="headerlink" title="宣告的重要性"></a>宣告的重要性</h2><p>如果沒有宣告變數, 有可能導致無法預測的結果。</p>
+<p>在 ECMAScript 5 中的嚴格模式(strict model)，</p>
+<p>如果在函數中，給一個沒有經過宣告的函數，賦予值將導致錯誤。</p>
+<p>那什麼是嚴格模式，未來會將有一篇特別提到嚴格模式。</p>
+<span id="more"></span>
+
+<h1 id="var"><a href="#var" class="headerlink" title="var"></a>var</h1><p>用來宣告變數同時間，賦予一個初始值（非強制性）。非強制性指的是什麼呢？</p>
+<p>舉個例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br></pre></td></tr></table></figure>
+
+<p>我們可以藉由 var a 來宣告一個 a 變數，但我們不一定要給 a 變數任何初始值。</p>
+<h1 id="let"><a href="#let" class="headerlink" title="let"></a>let</h1><p>用來宣告一個變數，而這個變數只能用於目前區塊（block），只要跳脫出 block 就不行使用，</p>
+<p>而初始值可以選擇是否需要設定。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br></pre></td></tr></table></figure>
+
+<p>前面迴圈分別得到 0, 1, 2, 3, 4 ；</p>
+<p>而在 Block 外的 console.log(i)，其中的 i 已經跳脫出 Block Scope，</p>
+<p>所以會得到 <font color=#0000FF><strong>Uncaught ReferenceError: i is not defined</strong></font></p>
+<h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><p>用來宣告常數(Constants)，它與 let 宣告相似，也具有區塊範圍，</p>
+<p>然而常數不能重複指定它的值，也不能重複做宣告。</p>
+<p>所以對於 const 宣告時，不適合不給初始值，因為常數不能變，</p>
+<p>所以宣告的同時就要給定值，要不然藉由 const 宣告出來的東西就沒意義。</p>
+<h2 id="差異"><a href="#差異" class="headerlink" title="差異"></a>差異</h2><ol>
+<li>對於宣告而言：</li>
+</ol>
+<p>var 宣告後的變數，是可以重複被宣告的；</p>
+<p>但 let 跟 const 是不能重複被宣告。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> feeling = <span class="string">&quot;happy&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> feeling = <span class="string">&quot;unhappy&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>var 可以重複被宣告</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> feeling = <span class="string">&quot;happy&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> feeling = <span class="string">&quot;unhappy&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>而 let 不可以重複被宣告。</p>
+<p>但 let 可以重新賦予值：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> feeling = <span class="string">&quot;happy&quot;</span>;</span><br><span class="line">feeling = <span class="string">&quot;unhappy&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>對於作用的範圍而言：</li>
+</ol>
+<p>var 定義出來的是變數全域變數，也是 function scope，</p>
+<p>主要是針對在 function 內用 var 定義出來的變數，跳脫出 Function 後，就會沒有作用；</p>
+<p>對於 let 跟 const 都是 Block Scope，跳脫出 Block 後，就會沒有作用。</p>
+<p><font color=#FF0000>例子 1:</font></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> feeling = <span class="string">&quot;happy&quot;</span>;</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">feeling</span>; <span class="comment">// &quot;happy&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>會得到 happy。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> feeling = <span class="string">&quot;happy&quot;</span>;</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">feeling</span>; <span class="comment">// &quot;undefined&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>會得到 undefined。</p>
+<p><font color=#FF0000>例子 2:</font></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br></pre></td></tr></table></figure>
+
+<p>前面迴圈分別得到 0, 1, 2, 3, 4 ；</p>
+<p>而在 Block 外的 console.log(i)會得到 4。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br></pre></td></tr></table></figure>
+
+<p>前面迴圈分別得到 0, 1, 2, 3, 4 ；</p>
+<p>而在 Block 外的 console.log(i)，其中的 i 已經跳脫出 Block Scope，</p>
+<p>所以會得到 <font color=#0000FF><strong>Uncaught ReferenceError: i is not defined</strong></font></p>
+<p><font color=#FF0000>例子 3:</font></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">num</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br></pre></td></tr></table></figure>
+
+<p>會得到 <font color=#0000FF><strong>Uncaught ReferenceError: i is not defined</strong></font>，因為 var 定義的變數 i，</p>
+<p>已經跳脫出 Function Scope。</p>
+<p>而在 Block 外的 console.log(i)會得到 4。</p>
+<ol start="3">
+<li>對於變數提升而言：</li>
+</ol>
+<p>主要會藉由新的一篇詳細介紹什麼是變數提升，在這邊只會比較有什麼差異：</p>
+<p>var 宣告的變數，會將初始化的值定義成 undefined，</p>
+<p>所以當宣告前就使用變數，只會得到 undefined，而不會跳出錯誤訊息；</p>
+<p>但 let 與 const 所宣告的變數，對於變數提升而言，不會做初始化，</p>
+<p>所以這些變數會進入暫時死區(Temporal Dead Zone，簡稱 TDZ)，</p>
+<p>所以當宣告前就使用變數，就會出現錯誤訊息。</p>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>看起來 let 跟 const</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/var">MDN - var</a></p>
+<p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/let">MDN - let</a></p>
+<p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/const">MDN - const</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript 判斷式</title>
     <url>/2023/11/19/08-JS-if...and-loop/</url>
     <content><![CDATA[<h1 id="判斷式"><a href="#判斷式" class="headerlink" title="判斷式"></a>判斷式</h1><p>用來作流程控制，當指定的條件成立時，就會執行某件事。</p>
