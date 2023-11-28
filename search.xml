@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JavaScript 嚴格模式</title>
+    <url>/2023/11/23/11-use-stict/</url>
+    <content><![CDATA[<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2>]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript 變數提升</title>
+    <url>/2023/11/23/10-hosting/</url>
+    <content><![CDATA[<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2>]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript中 var, let, const 之間的差異</title>
     <url>/2023/11/21/09-JS-var-let-const/</url>
     <content><![CDATA[<h1 id="宣告"><a href="#宣告" class="headerlink" title="宣告"></a>宣告</h1><p>我們會藉由 var, let, const 做宣告，這三個即是在 Javascript 內的保留字。</p>
