@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>JavaScript中 var, let, const 之間的差異</title>
-    <url>/2023/11/21/JS/09-JS-var-let-const/</url>
+    <url>/2023/11/21/09-JS-var-let-const/</url>
     <content><![CDATA[<h1 id="宣告"><a href="#宣告" class="headerlink" title="宣告"></a>宣告</h1><p>我們會藉由 var, let, const 做宣告，這三個即是在 Javascript 內的保留字。</p>
 <p>而早期只有 var 來宣告，但在 ES6 之後就加入了 let 以及 const。</p>
 <h2 id="宣告的重要性"><a href="#宣告的重要性" class="headerlink" title="宣告的重要性"></a>宣告的重要性</h2><p>如果沒有宣告變數, 有可能導致無法預測的結果。</p>
@@ -101,7 +101,7 @@
   </entry>
   <entry>
     <title>JavaScript 判斷式</title>
-    <url>/2023/11/19/JS/08-JS-if...and-loop/</url>
+    <url>/2023/11/19/08-JS-if...and-loop/</url>
     <content><![CDATA[<h1 id="判斷式"><a href="#判斷式" class="headerlink" title="判斷式"></a>判斷式</h1><p>用來作流程控制，當指定的條件成立時，就會執行某件事。</p>
 <p>在 Javascript 中，有兩種判斷式的語法：</p>
 <ul>
@@ -161,7 +161,7 @@
   </entry>
   <entry>
     <title>JavaScript基礎</title>
-    <url>/2023/11/16/JS/07-JS-Language/</url>
+    <url>/2023/11/16/07-JS-Language/</url>
     <content><![CDATA[<h1 id="變數"><a href="#變數" class="headerlink" title="變數"></a>變數</h1><p>簡單來說，變數是沒有固定的值，可以改變，像我們小時候做代數一樣，</p>
 <p>x+1&#x3D;9，此時的 x 即為 8；當今天 x-4&#x3D;2，此時的 x 即為 6。</p>
 <p>除了是單一個值之外，也可以是一個陣列。</p>
@@ -212,7 +212,7 @@
   </entry>
   <entry>
     <title>相等比較</title>
-    <url>/2023/11/09/JS/06-equal/</url>
+    <url>/2023/11/09/06-equal/</url>
     <content><![CDATA[<h1 id="JavaScript-的相等比較"><a href="#JavaScript-的相等比較" class="headerlink" title="JavaScript 的相等比較"></a>JavaScript 的相等比較</h1><p>相等比較為兩個值做比較判斷它們是否相等，然而在 JavaScript 中，</p>
 <p>有三種方法可以做<strong>相等比較</strong>:</p>
 <ul>
@@ -461,7 +461,7 @@
   </entry>
   <entry>
     <title>falsy value</title>
-    <url>/2023/11/05/JS/05-falsy-value/</url>
+    <url>/2023/11/05/05-falsy-value/</url>
     <content><![CDATA[<h1 id="什麼是-falsy-value？"><a href="#什麼是-falsy-value？" class="headerlink" title="什麼是 falsy value？"></a>什麼是 falsy value？</h1><p>當我們藉由邏輯判斷式(if…)時，會希望我們藉由 if 來判斷的東西回傳布林值(true or false)，</p>
 <p>這樣方便我們判斷該往哪一步前進。</p>
 <p>至於 falsy value 而言，就是這個值丟進去 if 判斷式內，</p>
@@ -536,7 +536,7 @@
   </entry>
   <entry>
     <title>null undefined undeclared 三者差異性</title>
-    <url>/2023/11/04/JS/04-difference-of-n-u-u/</url>
+    <url>/2023/11/04/04-difference-of-n-u-u/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前提起過，其實對於 null 以及 undefined 是很容易搞混的，</p>
 <p>而 undefined 以及 undeclared 也常常被拿來做比較。</p>
 <p>這篇會藉由描述彼此的定義來做比較。</p>
@@ -578,7 +578,7 @@
   </entry>
   <entry>
     <title>JavaScript的資料型別</title>
-    <url>/2023/11/01/JS/03-js-data-type/</url>
+    <url>/2023/11/01/03-js-data-type/</url>
     <content><![CDATA[<h1 id="資料型別"><a href="#資料型別" class="headerlink" title="資料型別"></a>資料型別</h1><p>大多數的程式語言都有自身的資料型別，而在 JavaScript 中又分為<strong>原生值</strong>以及<strong>物件</strong>，這兩大類。</p>
 <h2 id="原生值"><a href="#原生值" class="headerlink" title="原生值"></a>原生值</h2><p>原生值代表著我們不能改變這個值得本身，然而除了物件外，所有的值都是原生值。</p>
 <p>像對於定義一個變數而言，我們僅能將這個變數賦予另一個值，但卻不能把這個值給改變。</p>

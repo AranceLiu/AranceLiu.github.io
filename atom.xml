@@ -18,8 +18,8 @@
   
   <entry>
     <title>JavaScript中 var, let, const 之間的差異</title>
-    <link href="https://aranceliu.github.io/2023/11/21/JS/09-JS-var-let-const/"/>
-    <id>https://aranceliu.github.io/2023/11/21/JS/09-JS-var-let-const/</id>
+    <link href="https://aranceliu.github.io/2023/11/21/09-JS-var-let-const/"/>
+    <id>https://aranceliu.github.io/2023/11/21/09-JS-var-let-const/</id>
     <published>2023-11-21T07:05:25.000Z</published>
     <updated>2023-11-28T15:37:39.867Z</updated>
     
@@ -44,8 +44,8 @@
   
   <entry>
     <title>JavaScript 判斷式</title>
-    <link href="https://aranceliu.github.io/2023/11/19/JS/08-JS-if...and-loop/"/>
-    <id>https://aranceliu.github.io/2023/11/19/JS/08-JS-if...and-loop/</id>
+    <link href="https://aranceliu.github.io/2023/11/19/08-JS-if...and-loop/"/>
+    <id>https://aranceliu.github.io/2023/11/19/08-JS-if...and-loop/</id>
     <published>2023-11-19T05:25:05.000Z</published>
     <updated>2023-11-20T02:05:00.896Z</updated>
     
@@ -73,8 +73,8 @@
   
   <entry>
     <title>JavaScript基礎</title>
-    <link href="https://aranceliu.github.io/2023/11/16/JS/07-JS-Language/"/>
-    <id>https://aranceliu.github.io/2023/11/16/JS/07-JS-Language/</id>
+    <link href="https://aranceliu.github.io/2023/11/16/07-JS-Language/"/>
+    <id>https://aranceliu.github.io/2023/11/16/07-JS-Language/</id>
     <published>2023-11-15T20:01:28.000Z</published>
     <updated>2023-11-19T08:36:07.974Z</updated>
     
@@ -103,8 +103,8 @@
   
   <entry>
     <title>相等比較</title>
-    <link href="https://aranceliu.github.io/2023/11/09/JS/06-equal/"/>
-    <id>https://aranceliu.github.io/2023/11/09/JS/06-equal/</id>
+    <link href="https://aranceliu.github.io/2023/11/09/06-equal/"/>
+    <id>https://aranceliu.github.io/2023/11/09/06-equal/</id>
     <published>2023-11-09T11:26:03.000Z</published>
     <updated>2023-11-19T03:15:26.465Z</updated>
     
@@ -133,8 +133,8 @@
   
   <entry>
     <title>falsy value</title>
-    <link href="https://aranceliu.github.io/2023/11/05/JS/05-falsy-value/"/>
-    <id>https://aranceliu.github.io/2023/11/05/JS/05-falsy-value/</id>
+    <link href="https://aranceliu.github.io/2023/11/05/05-falsy-value/"/>
+    <id>https://aranceliu.github.io/2023/11/05/05-falsy-value/</id>
     <published>2023-11-05T04:09:00.000Z</published>
     <updated>2023-11-19T10:50:13.332Z</updated>
     
@@ -159,8 +159,8 @@
   
   <entry>
     <title>null undefined undeclared 三者差異性</title>
-    <link href="https://aranceliu.github.io/2023/11/04/JS/04-difference-of-n-u-u/"/>
-    <id>https://aranceliu.github.io/2023/11/04/JS/04-difference-of-n-u-u/</id>
+    <link href="https://aranceliu.github.io/2023/11/04/04-difference-of-n-u-u/"/>
+    <id>https://aranceliu.github.io/2023/11/04/04-difference-of-n-u-u/</id>
     <published>2023-11-04T01:21:00.000Z</published>
     <updated>2023-11-18T07:19:14.628Z</updated>
     
@@ -184,8 +184,8 @@
   
   <entry>
     <title>JavaScript的資料型別</title>
-    <link href="https://aranceliu.github.io/2023/11/01/JS/03-js-data-type/"/>
-    <id>https://aranceliu.github.io/2023/11/01/JS/03-js-data-type/</id>
+    <link href="https://aranceliu.github.io/2023/11/01/03-js-data-type/"/>
+    <id>https://aranceliu.github.io/2023/11/01/03-js-data-type/</id>
     <published>2023-10-31T18:21:00.000Z</published>
     <updated>2023-11-18T05:29:33.535Z</updated>
     
