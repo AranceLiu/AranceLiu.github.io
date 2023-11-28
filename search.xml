@@ -79,7 +79,14 @@
 <p>但 let 與 const 所宣告的變數，對於變數提升而言，不會做初始化，</p>
 <p>所以這些變數會進入暫時死區(Temporal Dead Zone，簡稱 TDZ)，</p>
 <p>所以當宣告前就使用變數，就會出現錯誤訊息。</p>
-<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>看起來 let 跟 const</p>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>let 跟 const 大多都是一樣的，所以上面的例子都是 let 跟 var 的差別；</p>
+<p>然而，let 是針對變數宣告，而 const 是針對常數做宣告，</p>
+<p>所以 let 可以重新賦予值，但 const 不行。</p>
+<p>但對於賦予值的定義是不能改變當變數是原生值的時候，例如：字串、數字…等。</p>
+<p>如果變數是物件，仍可以改變。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> feeling = &#123; <span class="attr">today</span>: <span class="string">&quot;happy&quot;</span> &#125;;</span><br><span class="line">feeling.<span class="property">today</span> = <span class="string">&quot;unhappy&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>這樣 feeling 就會變成 today: “unhappy”</p>
 <hr>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/var">MDN - var</a></p>
 <p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/let">MDN - let</a></p>
