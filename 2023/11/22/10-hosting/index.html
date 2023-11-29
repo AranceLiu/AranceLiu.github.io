@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    JavaScript 變數提升 |
+    
+    Welcome
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Welcome" type="application/atom+xml">
+</head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-10-hosting" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+  <h1 class="article-title" itemprop="name">
+    JavaScript 變數提升
+  </h1>
+  
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2023/11/22/10-hosting/" class="article-date">
+  <time datetime="2023-11-22T01:10:03.000Z" itemprop="datePublished">2023-11-22</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <h1 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h1><p>對於「提升」，其實它不是一個原本特有的名詞，</p>
+<p>而是用來了解在 JavaScript 當中如何運行的，</p>
+<p>主要是由於 JavaScript 當中<strong>執行階段</strong>的關係，而導致這個情況。</p>
+<span id="more"></span>
+
+<h2 id="變數提升"><a href="#變數提升" class="headerlink" title="變數提升"></a>變數提升</h2><p>不過一般而言，這個模式很容易令人誤解，可能會因為變數宣告放在比較後面，</p>
+<p>然後以為藉由變數提升，導致我們可能以為只是單純將變數移動至上方做使用。</p>
+<p>舉個例子來說：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;Arance&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name);</span><br></pre></td></tr></table></figure>
+
+<p>對於我們理解程式碼由上而下做解析，的確這樣名字會印出 Arance。</p>
+<p>但如果是這樣的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name);</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;Arance&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>我們可能會覺得，今天由上而下的概念，這樣名字還沒被宣告就拿來用，</p>
+<p>應該會有錯吧（？）但這樣名字卻會顯示 undefined。</p>
+<p>不會噴錯誤訊息？？？？？？？</p>
+<p>對！在 JavaScript 裡面的運行的確只會得到 undefined。</p>
+<p>這是因為 JavaScript 擁有兩階段執行。</p>
+<h1 id="兩階段執行"><a href="#兩階段執行" class="headerlink" title="兩階段執行"></a>兩階段執行</h1><p>什麼是兩階段執行？</p>
+<p>對於 JavaScript 執行程式，有兩個期間：</p>
+<ol>
+<li><p>建立期 - 在建立期時，主要會做註冊名稱（建立變數）＋初始化。</p>
+</li>
+<li><p>執行期 - 在執行期時，賦予值或是執行函數。</p>
+</li>
+</ol>
+<p><font color=#FF0000>例子 1:</font></p>
+<p>這樣講可能有點抽象，像上面的例子而言：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;Arance&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name);</span><br></pre></td></tr></table></figure>
+
+<p>在建立期時：</p>
+<p>第一條，主要將 name 建立這個變數，並對它做初始化，將 name 指定為 undefined。<br>而對於第二條，console.log(name)不會做任何事。</p>
+<p>在執行期時：</p>
+<p>第一條會將 name 指定為 Arance，就是所謂的賦予值。</p>
+<p>第二條，console.log(name)就會執行函數，而將它印出來。</p>
+<p><font color=#FF0000>例子 2:</font></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name);</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;Arance&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在建立期時：</p>
+<p>第一條，console.log(name)不會做任何事。</p>
+<p>第二條，主要將 name 建立這個變數，並對它做初始化，將 name 指定為 undefined。</p>
+<p>在執行期時：</p>
+<p>第一條，console.log(name)就會執行函數，而將它印出來，所以會得到 undefined。</p>
+<p>第二條會將 name 指定為 Arance，就是所謂的賦予值。</p>
+<p>所以才導致，這樣印出來是 undefined。</p>
+<p>針對 var 而言的變數提升，而很多人認為 let 不會做變數提升，</p>
+<p>但其實會，只不過我們在宣告 let 前就使用的話，會出現錯誤。</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name);</span><br><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;Arance&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在建立期時：</p>
+<p>第一條，console.log(name)不會做任何事。</p>
+<p>第二條，主要將 name 建立這個變數，但不會對它做初始化。</p>
+<p>在執行期時：</p>
+<p>第一條，console.log(name)就會執行函數，但由於沒有定義，所以會直接跳出錯誤訊息。</p>
+<p>主要因為沒有初始化，導致錯誤訊息，那是因為使用 let 宣告變數，</p>
+<p>會存在於暫時死區(Temporal Dead Zone,簡稱 TDZ)，</p>
+<p>而對於 let 以及 const 宣告變數都會存在於 TDZ 內。</p>
+<h2 id="暫時死區"><a href="#暫時死區" class="headerlink" title="暫時死區"></a>暫時死區</h2><p>暫時死區的好處就是可以避免我們在對變數宣告前就做使用，會進入的一區域，</p>
+<p>這樣只要在使用前沒宣告的話，在使用當下就會直接告訴我們錯誤訊息。</p>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>雖然變數提升，雖然可以讓我們在宣告之前就可以使用變數，</p>
+<p>但同樣的也會有所缺點是，或許這個會使用到其他人所定義的變數，</p>
+<p>那或許根本不是我們想要的變數。</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Glossary/Hoisting">MDN - Hosting</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aranceliu.github.io/2023/11/22/10-hosting/" data-id="clpj7grd8000pm8ui9wbqcnpo" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2023/11/23/11-use-stict/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      JavaScript 嚴格模式
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2023/11/21/09-JS-var-let-const/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">JavaScript中 var, let, const 之間的差異</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>Arance &copy; 2023</li>
+      
+      <li>
+        
+        <a href="https://beian.miit.gov.cn/" target="_blank"
+          ></a
+        >
+        
+      </li>
+      
+      <li>
+        Powered by
+        <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </li>
+      <li>
+        theme 
+        <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a>
+      </li>
+    </ul>
+    <p><ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt tooltip" data-tooltip="UV"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark tooltip" data-tooltip="PV"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul></p>
+  </div>
+</footer>
+
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Welcome"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">Categories</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">Tags</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
