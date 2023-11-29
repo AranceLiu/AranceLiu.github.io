@@ -35,12 +35,73 @@
       </tags>
   </entry>
   <entry>
-    <title>Ruby</title>
+    <title>以 Ruby 做後端的開序</title>
     <url>/2023/11/24/12-Ruby/</url>
-    <content><![CDATA[<h1 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h1><span id="more"></span>
+    <content><![CDATA[<h1 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h1><p>Ruby 是一種物件導向的程式語言，是由<a href="https://zh.wikipedia.org/zh-tw/%E6%9D%BE%E6%9C%AC%E8%A1%8C%E5%BC%98">松本行弘</a>設計以及開發。</p>
+<p>最主要理念是希望在寫程式碼時，減少不必要的時間，所以設計上較為人性化。</p>
+<p>有興趣的話，可以到 Ruby 的<a href="https://www.ruby-lang.org/en/">官網</a>做查詢。</p>
+<span id="more"></span>
 
-<hr>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="">MDN - </a></p>
+<h1 id="安裝-Ruby"><a href="#安裝-Ruby" class="headerlink" title="安裝 Ruby"></a><center>安裝 Ruby</center></h1><h1 id="作業系統"><a href="#作業系統" class="headerlink" title="作業系統"></a>作業系統</h1><p>我的電腦是 Apple M2 Pro, 16 GB, macOS Ventura Version 13.5，</p>
+<p>所以我這邊介紹以 Mac OS X 為範例。</p>
+<p>其實在 Mac 的作業系統內，其實已經有內建 Ruby 在裡面。</p>
+<p>不過在這邊，還是藉由 RVM(Ruby Version Manager)來管理 Ruby。</p>
+<h1 id="安裝-RVM"><a href="#安裝-RVM" class="headerlink" title="安裝 RVM"></a>安裝 RVM</h1><ol>
+<li><p>開啟終端機(Terminal)</p>
+</li>
+<li><p>於終端機內執行 Install RVM 的執行程式 - 請參考：<a href="https://rvm.io/">RVM 的官網</a></p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\curl -sSL https://get.rvm.io | bash -s stable</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>於終端機內執行</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rvm list known</span><br></pre></td></tr></table></figure>
+
+<p>藉由此列表查看可以安裝哪些版本，或是可以查看<a href="https://www.ruby-lang.org/en/downloads/releases/">releases 的版本</a></p>
+<ol start="4">
+<li>我裝的版本是 3.2.2，所以於終端機內執行</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rvm install 3.2.2</span><br></pre></td></tr></table></figure>
+
+<p>藉由此即可安裝 Ruby 3.2.2 版</p>
+<h1 id="遇到的問題"><a href="#遇到的問題" class="headerlink" title="遇到的問題"></a>遇到的問題</h1><p>其實我裝 Ruby 的時候有遇到困難，然後藉由<a href="https://stackoverflow.com/questions/73976833/error-running-rvm-make-j10-while-installing-ruby-2-6-5-on-mac/76766876#76766876">stack overflow</a>，</p>
+<p>發現是 M2 Pro 的預設路徑有所不同。</p>
+<p>最後藉由在終端機執行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rvm install 3.2.2 --with-openssl-dir=/opt/homebrew/Cellar/openssl@3</span><br></pre></td></tr></table></figure>
+
+<p>使用這個方式之後，才順利完成安裝。</p>
+<h1 id="檢查版本"><a href="#檢查版本" class="headerlink" title="檢查版本"></a>檢查版本</h1><p>當我們安裝好 Ruby 之後，我們可以藉由，在終端機執行：</p>
+<ul>
+<li>查看目前電腦內安裝過的 Ruby 版本</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rvm list</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看目前電腦使用的 Ruby 版本</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ruby -v</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>切換至其他的 Ruby 版本，藉由 rvm use x.x.x：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rvm use 2.4.1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>將某個 Ruby 版本列為預設值，這樣不用每次更換，藉由 rvm x.x.x - -default</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rvm 2.3.3 - -default</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>將某個版本移除，藉由 rvm uninstall x.x.x</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rvm uninstall 2.2.1</span><br></pre></td></tr></table></figure>
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="https://zh.wikipedia.org/zh-tw/Ruby">維基百科 - Ruby</a></p>
+<p><a href="https://www.ruby-lang.org/en/">官網 - Ruby</a></p>
+<p><a href="https://rvm.io/">官網 - RVM</a></p>
+<p><a href="https://stackoverflow.com/">官網 - stack overflow</a></p>
 ]]></content>
       <categories>
         <category>Ruby</category>
