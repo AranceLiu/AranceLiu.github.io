@@ -1,12 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ROR - CRUD</title>
+    <url>/2023/11/26/14-ROR-CRUD-concept/</url>
+    <content><![CDATA[<h1 id="CRUD"><a href="#CRUD" class="headerlink" title="CRUD"></a>CRUD</h1><span id="more"></span>
+
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="">MDN - </a></p>
+]]></content>
+      <categories>
+        <category>Ruby</category>
+        <category>Rails</category>
+        <category>Ruby on Rails</category>
+      </categories>
+      <tags>
+        <tag>Ruby</tag>
+        <tag>Rails</tag>
+        <tag>Ruby on Rails</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Rails</title>
+    <url>/2023/11/25/13-Rails/</url>
+    <content><![CDATA[<h1 id="Rails"><a href="#Rails" class="headerlink" title="Rails"></a>Rails</h1><span id="more"></span>
+
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="">MDN - </a></p>
+]]></content>
+      <categories>
+        <category>Rails</category>
+      </categories>
+      <tags>
+        <tag>Rails</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ruby</title>
+    <url>/2023/11/24/12-Ruby/</url>
+    <content><![CDATA[<h1 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h1><span id="more"></span>
+
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="">MDN - </a></p>
+]]></content>
+      <categories>
+        <category>Ruby</category>
+      </categories>
+      <tags>
+        <tag>Ruby</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript 嚴格模式</title>
     <url>/2023/11/23/11-use-stict/</url>
     <content><![CDATA[<h1 id="為何有嚴格模式？"><a href="#為何有嚴格模式？" class="headerlink" title="為何有嚴格模式？"></a>為何有嚴格模式？</h1><p>我們藉由程式碼讓 JavaScript 知道說，</p>
 <p>我們應該在嚴格模式的情境下使用我們的程式碼。</p>
 <p>當如果我們開啟嚴格模式，讓 JavaScript 語法嚴格、語法受限下執行。</p>
 <p>藉由嚴格模式，我們可以避免一些錯誤不再被忽略。</p>
+<span id="more"></span>
+
 <h1 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h1><p>藉由 use strict 的寫法來開啟嚴格模式。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line">x = <span class="number">3.14</span>;</span><br></pre></td></tr></table></figure>
 
@@ -20,6 +71,7 @@
 </li>
 </ol>
 <h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>嚴格模式存在的目的，當使用了嚴格沒是，讓我們能夠更好控制程式碼，避免一些錯誤發生。</p>
+<hr>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Strict_mode">MDN - Strict mode</a></p>
 ]]></content>
       <categories>
