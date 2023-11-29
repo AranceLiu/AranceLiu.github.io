@@ -8,7 +8,7 @@
   
   
   <title>
-    何謂CRUD？ |
+    ROR - 藉由CRUD的概念建立一個專案 |
     
     Welcome
   </title>
@@ -33,7 +33,7 @@
 <body>
   <main class="content">
     <section class="outer">
-  <article id="post-14-ROR-CRUD-concept" class="article article-type-post" itemscope
+  <article id="post-16-ROR-C" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -42,7 +42,7 @@
       
   
   <h1 class="article-title" itemprop="name">
-    何謂CRUD？
+    ROR - 藉由CRUD的概念建立一個專案
   </h1>
   
   
@@ -52,8 +52,8 @@
 
     
     <div class="article-meta">
-      <a href="/2023/11/26/14-ROR-CRUD-concept/" class="article-date">
-  <time datetime="2023-11-25T21:25:33.000Z" itemprop="datePublished">2023-11-26</time>
+      <a href="/2023/11/29/16-ROR-C/" class="article-date">
+  <time datetime="2023-11-29T03:12:33.000Z" itemprop="datePublished">2023-11-29</time>
 </a>
       
 <div class="article-category">
@@ -73,40 +73,45 @@
       
       
       
-        <h1 id="CRUD"><a href="#CRUD" class="headerlink" title="CRUD"></a>CRUD</h1><p>CRUD 主要是 Create, Read, Update, Delete 分別字母開頭，</p>
-<p>主要為「增刪查改」分別的英文做代表，不過會根據不同情況，有所改變。</p>
-<p>CRUD 很常用於使用資料庫與網頁的 API。</p>
-<ul>
-<li><p>Create 代表建立的意思</p>
-</li>
-<li><p>Read 代表讀取的意思</p>
-</li>
-<li><p>Update 代表更新的意思</p>
-</li>
-<li><p>Delete 代表刪除的意思</p>
-</li>
-</ul>
+        <h1 id="建立專案"><a href="#建立專案" class="headerlink" title="建立專案"></a>建立專案</h1><p>首先我會藉由 Rails 將一個專案給建立起來。</p>
+<p>我想幫我的「歡樂書店」建立一個專案，會藉由 rails new 專案名稱：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rails new JoyBookStore -j esbuild -c tailwind</span><br></pre></td></tr></table></figure>
+
+<p>為何後面還會看到 -j esbuild -c tailwind 呢？</p>
 <span id="more"></span>
 
-<h1 id="HTTP-的-CRUD"><a href="#HTTP-的-CRUD" class="headerlink" title="HTTP 的 CRUD"></a>HTTP 的 CRUD</h1><p>「增刪查改」會根據不同情況，有所改變，</p>
-<p>然而對於 HTTP 而言，</p>
-<p>原本的查(Read)就會改為 GET，</p>
-<p>增(Create)就會改為 POST，</p>
-<p>改(Update)就會改成 PUT。</p>
-<h1 id="SQL-的-CRUD"><a href="#SQL-的-CRUD" class="headerlink" title="SQL 的 CRUD"></a>SQL 的 CRUD</h1><p>對於 SQL 而言，</p>
-<p>查(Read)就會改為 SELECT，</p>
-<p>增(Create)就會改為 INSERT。</p>
-<h1 id="CRUD-應用"><a href="#CRUD-應用" class="headerlink" title="CRUD 應用"></a>CRUD 應用</h1><p>對電腦程式而言，CRUD 是形成一個動態網站必要的操作手段。</p>
-<p>畢竟當你想看到一個網站，必然經過了建立，讀取，甚至可以做更新或是刪除。</p>
-<p>對於 CRUD 在 ROR 的應用，我會以一個建立賣書的網站來慢慢細談。</p>
+<h2 id="j-esbuild"><a href="#j-esbuild" class="headerlink" title="-j esbuild"></a>-j esbuild</h2><p>加入這個選項，指定了 JavaScript 要建構的工具，</p>
+<p>這裡選擇<a target="_blank" rel="noopener" href="https://esbuild.github.io/">esbuild</a>，</p>
+<p>esbuild 主要是一個快速將前端 JavaScript 代碼使用 esbuild 做打包以及編譯。</p>
+<h2 id="c-tailwind"><a href="#c-tailwind" class="headerlink" title="-c tailwind"></a>-c tailwind</h2><p>加入這個選項，主要是定了你想要使用的 CSS 框架，</p>
+<p>那這邊是指定<a target="_blank" rel="noopener" href="https://tailwindcss.com/">Tailwind CSS</a>，</p>
+<p>Tailwind CSS 主要是一個工具包，可以快速建立，而減少有一些要撰寫自訂 CSS 的部分。</p>
+<h3 id="j-esbuild-webpack-rollup"><a href="#j-esbuild-webpack-rollup" class="headerlink" title="-j [esbuild | webpack | rollup]"></a>-j [esbuild | webpack | rollup]</h3><p>只要有加任何參數 -j [esbuild | webpack | rollup]，</p>
+<p>預設就會多出兩個檔案 Procfile.dev、bin&#x2F;dev。</p>
+<p>這樣就可藉由 bin&#x2F;dev 取代以往的 rails server，將網站架起來。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/dev</span><br></pre></td></tr></table></figure>
+
+<p>藉由 <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000/</a> 或是 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000/</a> 都可以查看 Rails 是否正常執行。</p>
+<p><img src="/images/15-ROR-C/15-ROR-C_2023-11-29-16-31-27.png"></p>
+<h1 id="routes-rb"><a href="#routes-rb" class="headerlink" title="routes.rb"></a>routes.rb</h1><p>首先，我們擁有一個網站，不外乎就是設置網站的路徑，</p>
+<p>所謂的路徑，也可以想像有哪些網址可以通往哪裡？</p>
+<p>我們藉由 routes.rb 檔，這個檔案主要就是放網站的路線可以通往哪裡。</p>
+<h2 id="CRUD-的-R"><a href="#CRUD-的-R" class="headerlink" title="CRUD 的 R"></a>CRUD 的 R</h2><p>大家還記得我們提起的 CRUD 嗎？</p>
+<p>如果你今天想要前往到某個網頁，對於這個動作，</p>
+<p>就是所謂的讀取(Read)，而對於 HTTP 網頁而言使用的動詞就是使用 GET。</p>
+<figure class="highlight rb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Rails</span>.application.routes.draw <span class="keyword">do</span></span><br><span class="line">    get <span class="string">&quot;/about&quot;</span>, <span class="symbol">to:</span><span class="string">&quot;books#about&quot;</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>當我們藉由 get 這個動詞，告訴他我們想前往 about 的頁面。</p>
 <hr>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9">維基百科 - CRUD</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Glossary/CRUD">MDN - CRUD</a></p>
+<p><a target="_blank" rel="noopener" href="https://esbuild.github.io/">官網 - esbuild</a></p>
+<p><a target="_blank" rel="noopener" href="https://tailwindcss.com/">官網 - Tailwind CSS</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://aranceliu.github.io/2023/11/26/14-ROR-CRUD-concept/" data-id="clpjjcgpl0017obuib8c5g3uh" class="article-share-link">
+      <a data-url="https://aranceliu.github.io/2023/11/29/16-ROR-C/" data-id="clpjjcgpm001dobui0d396dnz" class="article-share-link">
         Share
       </a>
       
@@ -120,19 +125,10 @@
   
 <nav class="article-nav">
   
+  
   <a href="/2023/11/28/15-ROR-MVC/" class="article-nav-link">
-    <strong class="article-nav-caption">Newer</strong>
-    <div class="article-nav-title">
-      
-      ROR - MVC結構
-      
-    </div>
-  </a>
-  
-  
-  <a href="/2023/11/25/13-Rails/" class="article-nav-link">
     <strong class="article-nav-caption">Older</strong>
-    <div class="article-nav-title">以 Rails 作為 Web 應用框架</div>
+    <div class="article-nav-title">ROR - MVC結構</div>
   </a>
   
 </nav>

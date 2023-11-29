@@ -6,7 +6,7 @@
   <link href="https://aranceliu.github.io/atom.xml" rel="self"/>
   
   <link href="https://aranceliu.github.io/"/>
-  <updated>2023-11-29T07:50:48.488Z</updated>
+  <updated>2023-11-29T08:43:40.011Z</updated>
   <id>https://aranceliu.github.io/</id>
   
   <author>
@@ -15,6 +15,69 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ROR - 藉由CRUD的概念建立一個專案</title>
+    <link href="https://aranceliu.github.io/2023/11/29/16-ROR-C/"/>
+    <id>https://aranceliu.github.io/2023/11/29/16-ROR-C/</id>
+    <published>2023-11-29T03:12:33.000Z</published>
+    <updated>2023-11-29T08:43:40.011Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="建立專案"><a href="#建立專案" class="headerlink" title="建立專案"></a>建立專案</h1><p>首先我會藉由 Rails 將一個專案給建立起來。</p><p>我想幫我的「歡樂書店」建立一個專案，會藉由 rails new 專案名稱：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rails new JoyBookStore -j esbuild -c tailwind</span><br></pre></td></tr></table></figure><p>為何後面還會看到 -j esbuild -c tailwind 呢？</p><span id="more"></span><h2 id="j-esbuild"><a href="#j-esbuild" class="headerlink" title="-j esbuild"></a>-j esbuild</h2><p>加入這個選項，指定了 JavaScript 要建構的工具，</p><p>這裡選擇<a href="https://esbuild.github.io/">esbuild</a>，</p><p>esbuild 主要是一個快速將前端 JavaScript 代碼使用 esbuild 做打包以及編譯。</p><h2 id="c-tailwind"><a href="#c-tailwind" class="headerlink" title="-c tailwind"></a>-c tailwind</h2><p>加入這個選項，主要是定了你想要使用的 CSS 框架，</p><p>那這邊是指定<a href="https://tailwindcss.com/">Tailwind CSS</a>，</p><p>Tailwind CSS 主要是一個工具包，可以快速建立，而減少有一些要撰寫自訂 CSS 的部分。</p><h3 id="j-esbuild-webpack-rollup"><a href="#j-esbuild-webpack-rollup" class="headerlink" title="-j [esbuild | webpack | rollup]"></a>-j [esbuild | webpack | rollup]</h3><p>只要有加任何參數 -j [esbuild | webpack | rollup]，</p><p>預設就會多出兩個檔案 Procfile.dev、bin&#x2F;dev。</p><p>這樣就可藉由 bin&#x2F;dev 取代以往的 rails server，將網站架起來。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/dev</span><br></pre></td></tr></table></figure><p>藉由 <a href="http://localhost:3000/">http://localhost:3000/</a> 或是 <a href="http://127.0.0.1:3000/">http://127.0.0.1:3000/</a> 都可以查看 Rails 是否正常執行。</p><p><img src="/images/15-ROR-C/15-ROR-C_2023-11-29-16-31-27.png"></p><h1 id="routes-rb"><a href="#routes-rb" class="headerlink" title="routes.rb"></a>routes.rb</h1><p>首先，我們擁有一個網站，不外乎就是設置網站的路徑，</p><p>所謂的路徑，也可以想像有哪些網址可以通往哪裡？</p><p>我們藉由 routes.rb 檔，這個檔案主要就是放網站的路線可以通往哪裡。</p><h2 id="CRUD-的-R"><a href="#CRUD-的-R" class="headerlink" title="CRUD 的 R"></a>CRUD 的 R</h2><p>大家還記得我們提起的 CRUD 嗎？</p><p>如果你今天想要前往到某個網頁，對於這個動作，</p><p>就是所謂的讀取(Read)，而對於 HTTP 網頁而言使用的動詞就是使用 GET。</p><figure class="highlight rb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Rails</span>.application.routes.draw <span class="keyword">do</span></span><br><span class="line">    get <span class="string">&quot;/about&quot;</span>, <span class="symbol">to:</span><span class="string">&quot;books#about&quot;</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>當我們藉由 get 這個動詞，告訴他我們想前往 about 的頁面。</p><hr><h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a href="https://zh.wikipedia.org/zh-tw/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9">維基百科 - CRUD</a></p><p><a href="https://developer.mozilla.org/zh-TW/docs/Glossary/CRUD">MDN - CRUD</a></p><p><a href="https://esbuild.github.io/">官網 - esbuild</a></p><p><a href="https://tailwindcss.com/">官網 - Tailwind CSS</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;建立專案&quot;&gt;&lt;a href=&quot;#建立專案&quot; class=&quot;headerlink&quot; title=&quot;建立專案&quot;&gt;&lt;/a&gt;建立專案&lt;/h1&gt;&lt;p&gt;首先我會藉由 Rails 將一個專案給建立起來。&lt;/p&gt;
+&lt;p&gt;我想幫我的「歡樂書店」建立一個專案，會藉由 rails new 專案名稱：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rails new JoyBookStore -j esbuild -c tailwind&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;為何後面還會看到 -j esbuild -c tailwind 呢？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Ruby" scheme="https://aranceliu.github.io/categories/Ruby/"/>
+    
+    <category term="Rails" scheme="https://aranceliu.github.io/categories/Rails/"/>
+    
+    <category term="Ruby on Rails" scheme="https://aranceliu.github.io/categories/Ruby-on-Rails/"/>
+    
+    
+    <category term="Ruby" scheme="https://aranceliu.github.io/tags/Ruby/"/>
+    
+    <category term="Rails" scheme="https://aranceliu.github.io/tags/Rails/"/>
+    
+    <category term="Ruby on Rails" scheme="https://aranceliu.github.io/tags/Ruby-on-Rails/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ROR - MVC結構</title>
+    <link href="https://aranceliu.github.io/2023/11/28/15-ROR-MVC/"/>
+    <id>https://aranceliu.github.io/2023/11/28/15-ROR-MVC/</id>
+    <published>2023-11-28T13:35:33.000Z</published>
+    <updated>2023-11-29T08:59:01.743Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="何謂-MVC-結構？"><a href="#何謂-MVC-結構？" class="headerlink" title="何謂 MVC 結構？"></a>何謂 MVC 結構？</h1><p>所謂的 MVC 結構，主要是以 Model、View、Controller，</p><p>主要將軟體分為三個部分，大家都各司其職，能讓程式的架構更直覺，也更好進行分工。</p><span id="more"></span><h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>對於模型而言，主要用於封裝以及商業邏輯在相關資料當中，</p><p>對資料做處理以及與資料庫做連結。</p><h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><p>對於視覺而言，資料傳遞過來，藉由畫面的方式呈現給使用者。</p><h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><p>對於控制器而言，接收到傳遞的訊息並做出相對應的回應，</p><p>並且當作 Model 以及 View 之間的中間人，</p><p>從不同層面組織起來。</p><h1 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h1><p>除了 MVC 之外，對於 Rails 而言還有 Route 這個角色，</p><p>Route 主要是將所有的路徑設定好，</p><p>讓網站可以有相對應的路徑可以使用。</p><h1 id="慣例優於設定"><a href="#慣例優於設定" class="headerlink" title="慣例優於設定"></a>慣例優於設定</h1><p>在 Rails 當中，做到慣例的事情會讓你省去很多麻煩，例如：</p><ul><li><p>檔案名稱：小寫＋單數.rb 檔</p></li><li><p>Model 名稱：首字大寫＋單數</p></li><li><p>Table 名稱：小寫＋複數</p></li></ul><table><thead><tr><th>檔名</th><th>Model</th><th>Table</th></tr></thead><tbody><tr><td>book.rb</td><td>Book</td><td>books</td></tr><tr><td>product_item.rb</td><td>ProductItem</td><td>product_items</td></tr></tbody></table>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;何謂-MVC-結構？&quot;&gt;&lt;a href=&quot;#何謂-MVC-結構？&quot; class=&quot;headerlink&quot; title=&quot;何謂 MVC 結構？&quot;&gt;&lt;/a&gt;何謂 MVC 結構？&lt;/h1&gt;&lt;p&gt;所謂的 MVC 結構，主要是以 Model、View、Controller，&lt;/p&gt;
+&lt;p&gt;主要將軟體分為三個部分，大家都各司其職，能讓程式的架構更直覺，也更好進行分工。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Ruby" scheme="https://aranceliu.github.io/categories/Ruby/"/>
+    
+    <category term="Rails" scheme="https://aranceliu.github.io/categories/Rails/"/>
+    
+    <category term="Ruby on Rails" scheme="https://aranceliu.github.io/categories/Ruby-on-Rails/"/>
+    
+    
+    <category term="Ruby" scheme="https://aranceliu.github.io/tags/Ruby/"/>
+    
+    <category term="Rails" scheme="https://aranceliu.github.io/tags/Rails/"/>
+    
+    <category term="Ruby on Rails" scheme="https://aranceliu.github.io/tags/Ruby-on-Rails/"/>
+    
+  </entry>
   
   <entry>
     <title>何謂CRUD？</title>
