@@ -20,7 +20,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Rails</title>
+    <title>以 Rails 作為 Web 應用框架</title>
     <url>/2023/11/25/13-Rails/</url>
     <content><![CDATA[<h1 id="Rails"><a href="#Rails" class="headerlink" title="Rails"></a>Rails</h1><p>Rails 主要是使用在 Ruby 內用來做開源 Web 的應用框架，</p>
 <p>所以也可以稱為 Ruby on Rails，簡稱為 ROR。</p>
